@@ -110,7 +110,7 @@ class MORN(nn.Module):
 
                 v_max = offsets_max.data[i]
                 v_min = offsets_min.data[i]
-                img_offsets = (offsets_grid[i]).view(1, self.targetH, self.targetW).data.cpu().add_(-v_min).mul_(1./(v_max-v_min))
+                img_offsets = (offsets_grid[i]).view(1, self.targetH, self.targetW).data.add_(-v_min).mul_(1./(v_max-v_min))
                 img_offsets = to_pil_image(img_offsets)
                 img_offsets = np.array(img_offsets)
                 color_map = np.empty([self.targetH, self.targetW, 3], dtype=int)
