@@ -23,4 +23,9 @@ Launch this file and open Rviz to see predicted result and mask. **Please make s
     roslaunch moran_text_recog text_recognize.launch
 ```
 
+Turn on the service
+```
+    rosservice call /text_detection/predict_switch_server "data: true"
+```
+
 Then, you will see prediction and mask images on Rviz, you can also edit [config file](moran_text_recog/config/commodity_list.txt) to determine what name can be detected.
